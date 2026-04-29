@@ -1,0 +1,41 @@
+{
+  "name": "harmonyos-deveco-codex-skill",
+  "version": "0.1.0",
+  "description": "Codex skill and slash prompts for HarmonyOS DevEco product realization, ArkUI implementation, and verification.",
+  "author": {
+    "name": "Alex",
+    "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+    "url": "https://github.com/1635032352-lgtm"
+  },
+  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-codex-skill",
+  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-codex-skill",
+  "license": "UNLICENSED",
+  "keywords": [
+    "harmonyos",
+    "deveco",
+    "arkui",
+    "arkts",
+    "hvigor",
+    "codex",
+    "skill"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "HarmonyOS DevEco",
+    "shortDescription": "Build, design, validate, and report HarmonyOS DevEco app work.",
+    "longDescription": "A Codex skill package for turning ideal HarmonyOS product ideas into ArkUI/ArkTS implementation checkpoints with DevEco, hvigor, signing, route, permission, and evidence discipline.",
+    "developerName": "Alex",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Write",
+      "Code",
+      "Validation"
+    ],
+    "defaultPrompt": [
+      "/harmonyos-ideal Capture this app idea",
+      "/harmonyos-arkui Turn this UI into ArkUI",
+      "/harmonyos-verify Check build and signing evidence"
+    ],
+    "brandColor": "#0A84FF"
+  }
+}

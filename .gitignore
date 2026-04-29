@@ -1,0 +1,21 @@
+# Generated local documentation indexes and copied source archives.
+skills/harmonyos-deveco/references/docs/*
+!skills/harmonyos-deveco/references/docs/.gitkeep
+skills/harmonyos-deveco/references/contest/raw/*
+!skills/harmonyos-deveco/references/contest/raw/.gitkeep
+skills/harmonyos-deveco/references/docs.sqlite
+skills/harmonyos-deveco/references/docs-index.jsonl
+
+# Local/runtime noise.
+__pycache__/
+*.pyc
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# DevEco/HarmonyOS project build outputs if copied into examples later.
+.hvigor/
+build/
+entry/build/
+entry/.preview/
