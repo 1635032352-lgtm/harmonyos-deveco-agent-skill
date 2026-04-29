@@ -1,5 +1,7 @@
 # HarmonyOS DevEco Codex Skill
 
+![HarmonyOS DevEco Codex Skill workflow hero](assets/readme-hero.png)
+
 Codex skill package for HarmonyOS / DevEco Studio work. It turns product ideas, UI plans, screenshots, ArkUI implementation tasks, build errors, signing checks, and device evidence requests into small, explicit checkpoints.
 
 ## What Is Included
