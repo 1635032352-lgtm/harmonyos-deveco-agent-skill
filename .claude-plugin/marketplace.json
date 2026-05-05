@@ -5,7 +5,7 @@
     "email": "255478876+1635032352-lgtm@users.noreply.github.com"
   },
   "metadata": {
-    "description": "Claude Code marketplace for HarmonyOS DevEco agent skills.",
+    "description": "Claude Code marketplace for HarmonyOS DevEco and Zhipu GLM agent plugins.",
     "version": "0.1.0"
   },
   "plugins": [
@@ -29,6 +29,25 @@
         "arkui",
         "arkts",
         "claude-code"
+      ]
+    },
+    {
+      "name": "zhipu-glm-agent-plugin",
+      "source": "./plugins/zhipu-glm-agent-plugin",
+      "description": "Zhipu AI / BigModel GLM chat completions through a local MCP tool.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Alex",
+        "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+        "url": "https://github.com/1635032352-lgtm"
+      },
+      "category": "ai",
+      "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill/tree/main/plugins/zhipu-glm-agent-plugin",
+      "tags": [
+        "zhipu",
+        "glm",
+        "bigmodel",
+        "mcp"
       ]
     }
   ]

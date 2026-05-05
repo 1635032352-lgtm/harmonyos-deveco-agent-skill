@@ -1,0 +1,43 @@
+{
+  "name": "zhipu-glm-agent-plugin",
+  "version": "0.1.0",
+  "description": "Codex plugin that exposes Zhipu GLM chat completions through a local MCP tool.",
+  "author": {
+    "name": "Alex",
+    "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+    "url": "https://github.com/1635032352-lgtm"
+  },
+  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill/tree/main/plugins/zhipu-glm-agent-plugin",
+  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
+  "license": "UNLICENSED",
+  "keywords": [
+    "zhipu",
+    "glm",
+    "bigmodel",
+    "mcp",
+    "chat-completions"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Zhipu GLM",
+    "shortDescription": "Call Zhipu GLM chat models from Codex via MCP.",
+    "longDescription": "A local MCP bridge for Zhipu AI / BigModel Chat Completions. It reads ZHIPUAI_API_KEY from the environment, sends prompts to GLM models, and returns content, reasoning content, and usage metadata without storing secrets.",
+    "developerName": "Alex",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "MCP",
+      "LLM"
+    ],
+    "websiteURL": "https://open.bigmodel.cn/",
+    "privacyPolicyURL": "https://open.bigmodel.cn/",
+    "termsOfServiceURL": "https://open.bigmodel.cn/",
+    "defaultPrompt": [
+      "Ask GLM to review this design tradeoff.",
+      "Ask GLM for a second opinion on this code.",
+      "Use GLM to draft a Chinese product summary."
+    ],
+    "brandColor": "#2F6BFF"
+  }
+}

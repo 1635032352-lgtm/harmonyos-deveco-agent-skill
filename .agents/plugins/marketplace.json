@@ -1,0 +1,20 @@
+{
+  "name": "harmonyos-deveco-agent-skills",
+  "interface": {
+    "displayName": "HarmonyOS DevEco Agent Skills"
+  },
+  "plugins": [
+    {
+      "name": "zhipu-glm-agent-plugin",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zhipu-glm-agent-plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

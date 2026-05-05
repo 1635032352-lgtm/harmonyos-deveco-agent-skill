@@ -1,0 +1,25 @@
+{
+  "name": "zhipu-glm-agent-plugin",
+  "version": "0.1.0",
+  "description": "Claude Code plugin that exposes Zhipu GLM chat completions through a local MCP tool.",
+  "author": {
+    "name": "Alex",
+    "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+    "url": "https://github.com/1635032352-lgtm"
+  },
+  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill/tree/main/plugins/zhipu-glm-agent-plugin",
+  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
+  "license": "UNLICENSED",
+  "keywords": [
+    "zhipu",
+    "glm",
+    "bigmodel",
+    "mcp",
+    "chat-completions"
+  ],
+  "skills": "./skills/",
+  "commands": [
+    "./commands/glm-chat.md"
+  ],
+  "mcpServers": "./.mcp.json"
+}

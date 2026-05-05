@@ -31,7 +31,15 @@ $requiredFiles = @(
   "commands\harmonyos-report.md",
   "commands\harmonyos-fix.md",
   "commands\harmonyos-contest.md",
-  "commands\harmonyos-all.md"
+  "commands\harmonyos-all.md",
+  ".agents\plugins\marketplace.json",
+  "plugins\zhipu-glm-agent-plugin\.codex-plugin\plugin.json",
+  "plugins\zhipu-glm-agent-plugin\.claude-plugin\plugin.json",
+  "plugins\zhipu-glm-agent-plugin\.mcp.json",
+  "plugins\zhipu-glm-agent-plugin\README.md",
+  "plugins\zhipu-glm-agent-plugin\commands\glm-chat.md",
+  "plugins\zhipu-glm-agent-plugin\skills\zhipu-glm\SKILL.md",
+  "plugins\zhipu-glm-agent-plugin\scripts\zhipu-glm-mcp.js"
 )
 
 $missing = @()
@@ -67,7 +75,15 @@ foreach ($command in $commands) {
 }
 
 $invalidJsonFiles = @()
-foreach ($file in @(".codex-plugin\plugin.json", ".claude-plugin\plugin.json", ".claude-plugin\marketplace.json")) {
+foreach ($file in @(
+  ".codex-plugin\plugin.json",
+  ".claude-plugin\plugin.json",
+  ".claude-plugin\marketplace.json",
+  ".agents\plugins\marketplace.json",
+  "plugins\zhipu-glm-agent-plugin\.codex-plugin\plugin.json",
+  "plugins\zhipu-glm-agent-plugin\.claude-plugin\plugin.json",
+  "plugins\zhipu-glm-agent-plugin\.mcp.json"
+)) {
   try {
     Get-Content -Raw (Join-Path $repoRoot $file) | ConvertFrom-Json | Out-Null
   } catch {
@@ -93,6 +109,32 @@ if ($claudeMarketplaceText -notmatch [regex]::Escape('"name": "harmonyos-deveco-
 if ($claudeMarketplaceText -notmatch [regex]::Escape('"repo": "1635032352-lgtm/harmonyos-deveco-agent-skill"')) {
   $missingClaudeMetadata += ".claude-plugin\marketplace.json repo"
 }
+if ($claudeMarketplaceText -notmatch [regex]::Escape('"name": "zhipu-glm-agent-plugin"')) {
+  $missingClaudeMetadata += ".claude-plugin\marketplace.json zhipu plugin name"
+}
+if ($claudeMarketplaceText -notmatch [regex]::Escape('"source": "./plugins/zhipu-glm-agent-plugin"')) {
+  $missingClaudeMetadata += ".claude-plugin\marketplace.json zhipu plugin source"
+}
+
+$zhipuPluginText = Get-Content -Raw (Join-Path $repoRoot "plugins\zhipu-glm-agent-plugin\.codex-plugin\plugin.json")
+$zhipuClaudeText = Get-Content -Raw (Join-Path $repoRoot "plugins\zhipu-glm-agent-plugin\.claude-plugin\plugin.json")
+$zhipuMcpText = Get-Content -Raw (Join-Path $repoRoot "plugins\zhipu-glm-agent-plugin\.mcp.json")
+$missingZhipuMetadata = @()
+if ($zhipuPluginText -match '\[TODO:') {
+  $missingZhipuMetadata += "plugins\zhipu-glm-agent-plugin\.codex-plugin\plugin.json TODO"
+}
+if ($zhipuClaudeText -notmatch [regex]::Escape('"name": "zhipu-glm-agent-plugin"')) {
+  $missingZhipuMetadata += "plugins\zhipu-glm-agent-plugin\.claude-plugin\plugin.json name"
+}
+if ($zhipuClaudeText -notmatch [regex]::Escape('"./commands/glm-chat.md"')) {
+  $missingZhipuMetadata += "plugins\zhipu-glm-agent-plugin\.claude-plugin\plugin.json command"
+}
+if ($zhipuMcpText -notmatch [regex]::Escape('"zhipu-glm"')) {
+  $missingZhipuMetadata += "plugins\zhipu-glm-agent-plugin\.mcp.json server"
+}
+if ($zhipuMcpText -notmatch [regex]::Escape('zhipu-glm-mcp.js')) {
+  $missingZhipuMetadata += "plugins\zhipu-glm-agent-plugin\.mcp.json script"
+}
 
 $generatedFiles = @(
   "skills\harmonyos-deveco\references\docs.sqlite",
@@ -106,7 +148,7 @@ foreach ($file in $generatedFiles) {
   }
 }
 
-if ($missing.Count -or $missingCommands.Count -or $invalidJsonFiles.Count -or $missingClaudeCommandFiles.Count -or $missingClaudeMetadata.Count -or $bundledGenerated.Count) {
+if ($missing.Count -or $missingCommands.Count -or $invalidJsonFiles.Count -or $missingClaudeCommandFiles.Count -or $missingClaudeMetadata.Count -or $missingZhipuMetadata.Count -or $bundledGenerated.Count) {
   Write-Output "PACKAGE_CHECK FAIL"
   if ($missing.Count) {
     Write-Output "Missing files:"
@@ -127,6 +169,10 @@ if ($missing.Count -or $missingCommands.Count -or $invalidJsonFiles.Count -or $m
   if ($missingClaudeMetadata.Count) {
     Write-Output "Missing Claude metadata:"
     $missingClaudeMetadata | ForEach-Object { Write-Output "  $_" }
+  }
+  if ($missingZhipuMetadata.Count) {
+    Write-Output "Missing Zhipu GLM plugin metadata:"
+    $missingZhipuMetadata | ForEach-Object { Write-Output "  $_" }
   }
   if ($bundledGenerated.Count) {
     Write-Output "Generated files should not be committed:"

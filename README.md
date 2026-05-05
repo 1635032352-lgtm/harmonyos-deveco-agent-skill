@@ -14,6 +14,7 @@ Codex and Claude Code plugin package for HarmonyOS / DevEco Studio work. It turn
 - `.claude-plugin/marketplace.json`: Claude Code marketplace metadata for GitHub distribution.
 - `scripts/install.ps1`: local installer for skills and prompt shims.
 - `scripts/validate-package.ps1`: repository structure validator.
+- `plugins/zhipu-glm-agent-plugin/`: optional Zhipu AI / BigModel GLM MCP plugin for Codex and Claude Code.
 
 Large generated documentation caches are intentionally not committed:
 
@@ -82,6 +83,31 @@ For marketplace-style installation from GitHub, add this repository as a Claude 
 /plugin marketplace add 1635032352-lgtm/harmonyos-deveco-agent-skill
 /plugin install harmonyos-deveco-agent-skill@harmonyos-deveco-agent-skills
 ```
+
+## Optional Zhipu GLM Plugin
+
+This repository also includes `plugins/zhipu-glm-agent-plugin`, a separate MCP-backed plugin for calling Zhipu AI / BigModel GLM chat completions.
+
+Set the API key before starting Codex or Claude Code:
+
+```powershell
+$env:ZHIPUAI_API_KEY = "your-api-key"
+```
+
+Claude Code marketplace install:
+
+```text
+/plugin marketplace add 1635032352-lgtm/harmonyos-deveco-agent-skill
+/plugin install zhipu-glm-agent-plugin@harmonyos-deveco-agent-skills
+```
+
+Claude Code command:
+
+```text
+/zhipu-glm-agent-plugin:glm-chat 用中文总结这段设计方案
+```
+
+The MCP tool is `glm_chat`. It defaults to `glm-4.7` and `https://open.bigmodel.cn/api/paas/v4`.
 
 ## Optional Local Docs Index
 
