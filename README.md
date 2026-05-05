@@ -2,13 +2,16 @@
 
 ![HarmonyOS DevEco Agent Skill workflow hero](assets/readme-hero.png)
 
-Codex skill package for HarmonyOS / DevEco Studio work. It turns product ideas, UI plans, screenshots, ArkUI implementation tasks, build errors, signing checks, and device evidence requests into small, explicit checkpoints.
+Codex and Claude Code plugin package for HarmonyOS / DevEco Studio work. It turns product ideas, UI plans, screenshots, ArkUI implementation tasks, build errors, signing checks, and device evidence requests into small, explicit checkpoints.
 
 ## What Is Included
 
-- `skills/harmonyos-deveco/`: the main Codex skill, references, scripts, and OpenAI agent metadata.
-- `prompts/harmonyos-*.md`: slash prompt shims for low-friction commands.
+- `skills/harmonyos-deveco/`: the shared agent skill, references, scripts, and OpenAI agent metadata.
+- `prompts/harmonyos-*.md`: Codex slash prompt shims for low-friction commands.
+- `commands/harmonyos-*.md`: Claude Code plugin commands for the same checkpoints.
 - `.codex-plugin/plugin.json`: plugin manifest for Codex plugin packaging.
+- `.claude-plugin/plugin.json`: plugin manifest for Claude Code.
+- `.claude-plugin/marketplace.json`: Claude Code marketplace metadata for GitHub distribution.
 - `scripts/install.ps1`: local installer for skills and prompt shims.
 - `scripts/validate-package.ps1`: repository structure validator.
 
@@ -21,22 +24,24 @@ Large generated documentation caches are intentionally not committed:
 
 Regenerate those locally if you need offline HarmonyOS doc search.
 
-## Slash Commands
+## Checkpoint Commands
 
-| Command | Purpose |
-| --- | --- |
-| `/harmonyos-ideal` | Capture product promise, target user, scene, temperament, non-goals, and evidence target. |
-| `/harmonyos-ux` | Map first viewport, core journey, pages, states, entry points, and safety gates. |
-| `/harmonyos-system` | Produce ArkUI-ready design tokens, accessibility, dark mode, motion, and component roles. |
-| `/harmonyos-arkui` | Convert product/UI/design context into an ArkUI Landing Contract. |
-| `/harmonyos-implement` | Make focused ArkTS/ArkUI changes in a DevEco project. |
-| `/harmonyos-verify` | Check build, signing, Preview, device, route, permission, and artifact evidence. |
-| `/harmonyos-report` | Write a concise handoff report with changed files, evidence, and remaining risks. |
-| `/harmonyos-fix` | Debug build/runtime/signing/permission/resource/navigation errors. |
-| `/harmonyos-contest` | Plan HarmonyOS innovation contest work with contest-aware Kit/API constraints. |
-| `/harmonyos-all` | Run the full path only when the user explicitly wants it. |
+Codex installs these as bare slash commands. Claude Code plugins namespace commands by plugin name, so `/harmonyos-ideal` becomes `/harmonyos-deveco-agent-skill:harmonyos-ideal`.
 
-## Install Locally
+| Codex Command | Claude Code Command | Purpose |
+| --- | --- | --- |
+| `/harmonyos-ideal` | `/harmonyos-deveco-agent-skill:harmonyos-ideal` | Capture product promise, target user, scene, temperament, non-goals, and evidence target. |
+| `/harmonyos-ux` | `/harmonyos-deveco-agent-skill:harmonyos-ux` | Map first viewport, core journey, pages, states, entry points, and safety gates. |
+| `/harmonyos-system` | `/harmonyos-deveco-agent-skill:harmonyos-system` | Produce ArkUI-ready design tokens, accessibility, dark mode, motion, and component roles. |
+| `/harmonyos-arkui` | `/harmonyos-deveco-agent-skill:harmonyos-arkui` | Convert product/UI/design context into an ArkUI Landing Contract. |
+| `/harmonyos-implement` | `/harmonyos-deveco-agent-skill:harmonyos-implement` | Make focused ArkTS/ArkUI changes in a DevEco project. |
+| `/harmonyos-verify` | `/harmonyos-deveco-agent-skill:harmonyos-verify` | Check build, signing, Preview, device, route, permission, and artifact evidence. |
+| `/harmonyos-report` | `/harmonyos-deveco-agent-skill:harmonyos-report` | Write a concise handoff report with changed files, evidence, and remaining risks. |
+| `/harmonyos-fix` | `/harmonyos-deveco-agent-skill:harmonyos-fix` | Debug build/runtime/signing/permission/resource/navigation errors. |
+| `/harmonyos-contest` | `/harmonyos-deveco-agent-skill:harmonyos-contest` | Plan HarmonyOS innovation contest work with contest-aware Kit/API constraints. |
+| `/harmonyos-all` | `/harmonyos-deveco-agent-skill:harmonyos-all` | Run the full path only when the user explicitly wants it. |
+
+## Install For Codex
 
 From this repository root:
 
@@ -56,6 +61,27 @@ The installer copies:
 - `prompts/harmonyos-*.md` to `$CodexHome\prompts`
 
 Restart or reopen Codex if newly added slash prompts are not visible immediately.
+
+## Use With Claude Code
+
+For local development, load this repository directly as a Claude Code plugin:
+
+```powershell
+claude --plugin-dir .
+```
+
+Then run a namespaced command, for example:
+
+```text
+/harmonyos-deveco-agent-skill:harmonyos-ideal Capture this app idea
+```
+
+For marketplace-style installation from GitHub, add this repository as a Claude Code marketplace and install the plugin:
+
+```text
+/plugin marketplace add 1635032352-lgtm/harmonyos-deveco-agent-skill
+/plugin install harmonyos-deveco-agent-skill@harmonyos-deveco-agent-skills
+```
 
 ## Optional Local Docs Index
 
@@ -90,7 +116,7 @@ PACKAGE_CHECK PASS
 ```powershell
 git init
 git add .
-git commit -m "feat: add HarmonyOS DevEco Codex skill"
+git commit -m "feat: add HarmonyOS DevEco agent skill"
 git branch -M main
 git remote add origin https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill.git
 git push -u origin main

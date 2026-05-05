@@ -1,0 +1,35 @@
+{
+  "name": "harmonyos-deveco-agent-skills",
+  "owner": {
+    "name": "Alex",
+    "email": "255478876+1635032352-lgtm@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Claude Code marketplace for HarmonyOS DevEco agent skills.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "harmonyos-deveco-agent-skill",
+      "source": {
+        "source": "github",
+        "repo": "1635032352-lgtm/harmonyos-deveco-agent-skill"
+      },
+      "description": "HarmonyOS DevEco product realization, ArkUI implementation, and verification commands for Claude Code.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Alex",
+        "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+        "url": "https://github.com/1635032352-lgtm"
+      },
+      "category": "developer-tools",
+      "tags": [
+        "harmonyos",
+        "deveco",
+        "arkui",
+        "arkts",
+        "claude-code"
+      ]
+    }
+  ]
+}

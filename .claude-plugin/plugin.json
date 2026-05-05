@@ -1,0 +1,36 @@
+{
+  "name": "harmonyos-deveco-agent-skill",
+  "version": "0.1.0",
+  "description": "Claude Code plugin with HarmonyOS DevEco skills and checkpoint commands for product realization, ArkUI implementation, and verification.",
+  "author": {
+    "name": "Alex",
+    "email": "255478876+1635032352-lgtm@users.noreply.github.com",
+    "url": "https://github.com/1635032352-lgtm"
+  },
+  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
+  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
+  "license": "UNLICENSED",
+  "keywords": [
+    "harmonyos",
+    "deveco",
+    "arkui",
+    "arkts",
+    "hvigor",
+    "claude-code",
+    "codex",
+    "skill"
+  ],
+  "skills": "./skills/",
+  "commands": [
+    "./commands/harmonyos-ideal.md",
+    "./commands/harmonyos-ux.md",
+    "./commands/harmonyos-system.md",
+    "./commands/harmonyos-arkui.md",
+    "./commands/harmonyos-implement.md",
+    "./commands/harmonyos-verify.md",
+    "./commands/harmonyos-report.md",
+    "./commands/harmonyos-fix.md",
+    "./commands/harmonyos-contest.md",
+    "./commands/harmonyos-all.md"
+  ]
+}
