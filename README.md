@@ -1,6 +1,6 @@
-# HarmonyOS DevEco Codex Skill
+# HarmonyOS DevEco Agent Skill
 
-![HarmonyOS DevEco Codex Skill workflow hero](assets/readme-hero.png)
+![HarmonyOS DevEco Agent Skill workflow hero](assets/readme-hero.png)
 
 Codex skill package for HarmonyOS / DevEco Studio work. It turns product ideas, UI plans, screenshots, ArkUI implementation tasks, build errors, signing checks, and device evidence requests into small, explicit checkpoints.
 
@@ -92,8 +92,8 @@ git init
 git add .
 git commit -m "feat: add HarmonyOS DevEco Codex skill"
 git branch -M main
-git remote add origin https://github.com/1635032352-lgtm/harmonyos-deveco-codex-skill.git
+git remote add origin https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill.git
 git push -u origin main
 ```
 
-If the remote repository does not exist yet, create an empty GitHub repository named `harmonyos-deveco-codex-skill` first, then run the remote/push commands.
+If the remote repository does not exist yet, create an empty GitHub repository named `harmonyos-deveco-agent-skill` first, then run the remote/push commands.

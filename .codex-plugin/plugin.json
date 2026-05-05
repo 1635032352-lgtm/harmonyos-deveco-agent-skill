@@ -1,5 +1,5 @@
 {
-  "name": "harmonyos-deveco-codex-skill",
+  "name": "harmonyos-deveco-agent-skill",
   "version": "0.1.0",
   "description": "Codex skill and slash prompts for HarmonyOS DevEco product realization, ArkUI implementation, and verification.",
   "author": {
@@ -7,8 +7,8 @@
     "email": "255478876+1635032352-lgtm@users.noreply.github.com",
     "url": "https://github.com/1635032352-lgtm"
   },
-  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-codex-skill",
-  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-codex-skill",
+  "homepage": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
+  "repository": "https://github.com/1635032352-lgtm/harmonyos-deveco-agent-skill",
   "license": "UNLICENSED",
   "keywords": [
     "harmonyos",
